@@ -1,8 +1,8 @@
-import { I18nextProvider } from "./context/i18n";
+import { I18nextProvider } from "../context/i18n";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <I18nextProvider>
+    <I18nextProvider>npm run
       <Component {...pageProps} />
     </I18nextProvider>
   );
