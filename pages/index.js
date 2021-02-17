@@ -3,7 +3,6 @@ import { useT } from "../context/i18n";
 
 export default function IndexPage() {
   const t = useT();
-  debugger;
 
   return (
     <div>
