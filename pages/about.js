@@ -1,15 +1,14 @@
 import Link from "next/link";
 import { useT } from "./context/i18n";
 
-export default function IndexPage() {
+export default function AboutPage() {
   const t = useT();
-  debugger;
 
   return (
     <div>
-      hey buddy
+      another page.
       <Link href="/about">
-        <a>{t('str_key_to_translate')}</a>
+        <a>{t("str_key_to_translate")}</a>
       </Link>
     </div>
   );
