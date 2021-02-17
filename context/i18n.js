@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import i18n from "i18next";
 
 const I18NextContext = createContext();
@@ -10,19 +10,25 @@ export const useT = () => {
 };
 
 export function I18nextProvider({ children }) {
-  i18n.init({
-    debug: true,
-    resources: {
-      "en-US": {
-        translation: {
-          "str_key_to_translate": "working"
+  const [instance, setIstance] = useState()
+
+  useEffect(() => {
+    i18n.init({
+      debug: true,
+      resources: {
+        "en-US": {
+          translation: {
+            "str_key_to_translate": "working"
+          }
         }
-      }
-    },
-    lng: "en-US"
-  });
+      },
+      lng: "en-US"
+    }).then(() => setIstance(i18n));
+  }, [])
+
+  if (!instance) return null
 
   return (
-    <I18NextContext.Provider value={i18n}>{children}</I18NextContext.Provider>
+    <I18NextContext.Provider value={instance}>{children}</I18NextContext.Provider>
   );
 }

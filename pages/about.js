@@ -7,7 +7,7 @@ export default function AboutPage() {
   return (
     <div>
       another page.
-      <Link href="/about">
+      <Link href="/">
         <a>{t("str_key_to_translate")}</a>
       </Link>
     </div>
